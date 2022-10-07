@@ -1,4 +1,4 @@
-# Starter Repo for all Who are new to Devops and HacktoberFest 2022 :computer:
+# Starter Repo for beginners new in  Devops and HacktoberFest 2022 :computer:
 
 ### Make sure to register yourself on  [Hacktoberfest](https://hacktoberfest.com/auth/)
 This project is a totally beginner friendly project. It deals with basics of HTML,CSS and Javascript.
