@@ -30,9 +30,9 @@ After that push the code and then click Contribute to do a PR to be viewed by th
 ## How to contribute to this project!!
 
 You have to follow four simple steps once you have forked and cloned the repository.
-* Make a folder of your name.
-* Put all your files (HTML,CSS,JS) inside this folder.
-* After completing one task or resolving an issue give a PR.
-* When you are giving a PR make sure to mention the issue number that you have resolved in the commit message. 
+* Make a folder of the tool name you are contributing in .
+* Put all your files  inside this folder.
+* After Adding vauable commands which are not already there create a PR.
+* When you are giving a PR make sure to add the whole command as comment  that you have added in the commit message. 
 
 
