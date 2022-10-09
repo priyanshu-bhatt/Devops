@@ -37,13 +37,15 @@ docker run -it --name <OS-name> -p 1234:80 -v /data:/var/www/html centos
 //==========Enviornment variable passing=======
 Some Images need the Env variables before even going into a container with that image.
 
-docker run -it -e <ENV_Variable=Value> centos
+docker run -it -e <ENV_Variable=Value> centos  =>
 example:
+
 docker run -dit --name db3 -e  MYSQL_ROOT_PASSWORD=redhat -e  MYSQL_USER=priyanshu -e MYSQL_PASSWORD=pribhatt mysql
 
 //=========To exec commands without going in=====
 
 docker exec <COMMAND_NAME> <CONTAINER_NAME>
+
 
 
 
