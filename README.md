@@ -35,5 +35,9 @@ You have to follow four simple steps once you have forked and cloned the reposit
 * Put all your files  inside this folder.
 * After Adding vauable commands which are not already there create a PR.
 * When you are giving a PR make sure to add the whole command as comment  that you have added in the commit message. 
+## What To Contribute !!
+* You can add good resources of the following technologies.
+* Add Basic Commands.
+* Add More Tools and  much more ....
 
 
