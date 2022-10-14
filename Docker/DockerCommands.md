@@ -46,6 +46,15 @@ docker run -dit --name db3 -e  MYSQL_ROOT_PASSWORD=redhat -e  MYSQL_USER=priyans
 
 docker exec <COMMAND_NAME> <CONTAINER_NAME>
 
+## Linking One container wth other using the name
+### eg: Using MYSQL SERVER
+
+docker run -dir --name db -e <MYSQL_ROOT_PASSWORD> -e <MYSQL_DATABASE> -e <MYSQL_USER> -e <MYSQL_PASSWORD> -v /<TO-BE-MOUNTED-FOLDER>:/var/lib/mysql mysql:latest
+
+### Linking command using --link
+docker run -dit --name mywp -p 8080:80 --link db wordpress:latest
+
+#### Linking the db container with the wordpress
 
 
 
