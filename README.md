@@ -1,4 +1,4 @@
-🔴READ THE RULES BEFORE giving a PR
+🔴READ THE RULES BEFORE giving a PR and Start the repo
 # Starter Repo for beginners new in  Devops and HacktoberFest 2022 :computer:
 
 ### Make sure to register yourself on  [Hacktoberfest](https://hacktoberfest.com/auth/)
