@@ -38,6 +38,7 @@ You have to follow four simple steps once you have forked and cloned the reposit
 ## What To Contribute !!
 * You can add good resources of the following technologies.
 * Add Basic Commands.
-* Add More Tools and  much more ....
+* Add More Tools and  much more .....
 
+## Happy OpenSource
 
