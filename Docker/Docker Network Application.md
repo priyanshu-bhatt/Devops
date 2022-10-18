@@ -50,7 +50,7 @@ the name.
 - Hence using custom network we can get rid of the problem of downtime,and no need of using the link way to connect wordpress and mysql.
 - hence we don't need to remember the Ip just the name we can do stuffs.
 
-
+##Commands
 docker run -dit --name myp1 -p 8080:80 --network <NETWORK-NAME> wordpress:latest
 docker run -dit --name mydb1 --network <network-name> -e MYSQL_ROOT_PASSWORD=<> -e MYSQL_DATABASE=<> -e MYSQL_USER=<> -e MYSQL_PASSWORD=<>  -v /mymymysql-data:/var/lib/mysql mysql:latest
 
