@@ -40,7 +40,7 @@ And Default is set as bridge in the network bridge setting which can be seen doi
 
 - docker run -dit --name test2 
 
-when we create new network a new network card is created can be seen using ifconfig.
+- when we create new network a new network card is created can be seen using ifconfig.
 inter connection between different network is not allowedthey have internal not the cross connectivity.
 Even using the name also they are able to ping this is bcz of the custom network that we created and this is the facility of the custom network.
 though The IP get changed but name remains same hence whatsever IP it have after afain launch it still becomes reachable as we are connecting using
@@ -50,16 +50,16 @@ the name.
 - Hence using custom network we can get rid of the problem of downtime,and no need of using the link way to connect wordpress and mysql.
 - hence we don't need to remember the Ip just the name we can do stuffs.
 
+## Commands
+- docker run -dit --name myp1 -p 8080:80 --network <NETWORK-NAME> wordpress:latest
+- docker run -dit --name mydb1 --network <network-name> -e MYSQL_ROOT_PASSWORD=<> -e MYSQL_DATABASE=<> -e MYSQL_USER=<> -e MYSQL_PASSWORD=<>  -v /mymymysql-data:/var/lib/mysql mysql:latest
 
-docker run -dit --name myp1 -p 8080:80 --network <NETWORK-NAME> wordpress:latest
-docker run -dit --name mydb1 --network <network-name> -e MYSQL_ROOT_PASSWORD=<> -e MYSQL_DATABASE=<> -e MYSQL_USER=<> -e MYSQL_PASSWORD=<>  -v /mymymysql-data:/var/lib/mysql mysql:latest
-
-##Setting Up the wordpress
-Use your instance IP:8080
-dbname mydb1 name that You created in command
-username <>
-password <>
-dbhost mydb(container name of database)
+## Setting Up the wordpress
+- Use your instance IP:8080
+- dbname mydb1 name that You created in command
+- username <>
+- password <>
+- dbhost mydb(container name of database)
 
 now if database container delete
 and when we again launch it with the same name then it gets connected to the wordpress by itself though its IP get changed or whatsoever.
