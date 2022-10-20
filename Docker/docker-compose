@@ -1,0 +1,46 @@
+Life of Program is the life of Container.
+hence when the program end the the container stops.
+
+- docker run -it --name os1 centos date: Run and then stopped.
+- docker run -it --name os1 --rm centos date : RUN and then it gets deleted.
+
+
+
+If we want to do a thing continuosly again and again which cannot be done manually.In Docker if we want to do any automation then we can do using Docker Compose.
+By using code in YAML ,nad the same setup run will shared van ne run easily.
+curl -S ------------------
+chmod +x /usr/  -----------
+
+### YAML
+- to give list:
+ name:
+	- "priyanshu"
+	- "pop"
+	- "tom"
+key:value
+name:
+- "priyanshu"
+- "rohan"
+- "sagar"
+
+## Docker Compose:
+- Every container have a separate docker compose name apart from the container name,This is called Service Name.
+
+docker-compose -f myfile up- one command and anything on the yml will get created.
+docker-compose -f myfile ps
+
+docker-compose.yml is the by default file name.
+
+Till the time the container command gets executed then only the docker-compose command will get over.
+
+or run everything in the detached mode
+by:
+docker-compose up -d(File name is not given bcz we wrote yml in the default file)..
+
+service name will be usefull to know more about the container.
+eg: docker-compose -f filename logs c1(service name).
+
+Every Verion of Docker Compose is not compatible with every Docker Engine.
+version check(https://docs.docker.com/compose/compose-file/compose-file-v3/)
+
+Hence its better to mention the version on the top to match the compatibilities with Docker.
