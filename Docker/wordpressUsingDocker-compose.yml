@@ -1,0 +1,55 @@
+## Using Docker compose to create a file
+- To autmate container we use service.
+- for network we can use network keyword.
+- In the environment of wordpress we will put the automation part of the wordpress linking(The page we get to put our wordpress details)
+# Seting Up Mysql Database using Docker-compose:
+version: "3.8"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mycontaName
+    networks:
+    -  priyanshuNETCompose
+    volumes: 
+    -  /data:/var/lib/mysql
+    environment:
+    -  MYSQL_ROOT_PASSWORD=redhat 
+    -  MYSQL_DATABASE=blogcompose
+    -  MYSQL_USER=vimal 
+    -  MYSQL_PASSWORD=redhat
+    -  MYSQL_PASSWORD=redhat
+  wp:
+    depends_on:
+    - db
+    image: wordpress:latest
+    container_name: mywordpress
+    networks:
+    -  priyanshuNETCompose
+    ports:
+    - 8080:80
+    environment: 
+    -  WORDPRESS_DB_HOST=myContaName
+    -  WORDPRESS_DB_USER=vimal 
+    -  WORDPRESS_DB_PASSWORD=redhat
+    -  WORDPRESS_DB_NAME=blogcompose
+
+//TO create Network
+networks:
+  priyanshuNETCompose:
+    driver:bridge
+
+
+- If before launchig the db wordpress took a lot of time and the connecting database cont isn't launched,
+so we can also control it using depends_on keyword that's an list type.
+- when we share the docker-compose code the code will get shared but not the data as the data is 
+linked with the folder hence it will not be shared.
+
+## Manual Ways:
+
+- docker run -dir --name mywp --network lwnet -p 8080:80 -p 1234:8080 wordpress:latest
+
+
+- docker run -dit --name mydb1 --network priyanshuNET -e MYSQL_ROOT_PASSWORD=redhat -e MYSQL_DATABASE=blogcompose 
+-e MYSQL_USER=vimal -e MYSQL_PASSWORD=redhat 
+-v /data:/var/lib/mysql mysql:latest
