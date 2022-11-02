@@ -1,0 +1,24 @@
+- Image created can be used by any tool such as podman,rocket,Crio etc.
+- After every system reboot docker services are stoped.
+ To enable it for after boot too : systemctl enable docker
+
+- To run command inside container once:
+docker run -it centos date
+(Date command will run and the container will stop after that).This the real way we want container to run the program and terminate.
+- Hence we can even use the custom  image to run the command and automatically run the program itself when we run the container,
+  Using the cmd variable
+  eg: cmd date
+- here date is an runtime command and the life of the container is the life the program.
+_____                                              _____
+|CMD|                                              |RUN|
+It runs at the runtime
+As soon the container is launched             Run command run at the build time
+In hardisk it is run                         That is when the image is building it will
+                                              show ouput at bulding but not in the cont we launch 
+                                             using the the image,Run on the RAM.
+## Sharing custom image to other:
+docker save myhttpd:v1 -0 myweb.tar 
+- To save image in a tar file
+## How tp use the tar file image
+docker load -i myweb.tar
+- Giving Image name is not important if no image name given then it'sgiven as none(Image Id is imp).
