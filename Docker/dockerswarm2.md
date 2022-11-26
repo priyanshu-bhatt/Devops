@@ -36,7 +36,7 @@ node1    nod2       node3          node 4    node 5
 - swarm is majorly a container orchaestration tool.
 ## To create a task
 - docker service create --name priyanshu httpd
-##to publish task at port 8080
+## to publish task at port 8080
 - docker service create --publish 8080:80 --name priyanshu httpd
-##Scalling up the task.
+## Scalling up the task.
 - docker service scale myweb=4
