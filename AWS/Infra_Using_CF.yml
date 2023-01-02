@@ -1,0 +1,91 @@
+Parameters:
+  KeyName:
+    Type: String
+    Description: This is my default key
+
+Resources:
+  MyVpc:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags: 
+        - Key: "Name"
+          Value: "mycfvpc"
+  MyIntGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: MyCFGateway
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: MyVpc
+      InternetGatewayId:
+        Ref: MyIntGateway
+  mySubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: MyVpc
+      CidrBlock: 10.0.0.0/16
+      AvailabilityZone: "ap-south-1a"
+  myRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:  
+        Ref: MyVpc
+      Tags:
+      - Key: Name
+        Value: MyrouteCF
+  myRoute:
+    Type: AWS::EC2::Route
+    DependsOn: MyIntGateway
+    Properties:
+       RouteTableId:
+         Ref: myRouteTable
+       DestinationCidrBlock: 0.0.0.0/0
+       GatewayId:
+         Ref: MyIntGateway
+  mySubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: mySubnet
+      RouteTableId:
+        Ref: myRouteTable      
+  
+
+
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-0cca134ec43cf708f"
+      InstanceType: t2.micro
+      KeyName: 
+        Ref: KeyName
+      SubnetId: !Ref mySubnet
+      AvailabilityZone: ap-south-1a
+      SecurityGroupIds:
+        Ref: InSecurityGroup
+      Tags:
+        - Key: Name
+          Value: mycfos
+  InSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: 
+        Ref: MyVpc
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: "-1"
+          CidrIp: 0.0.0.0/0      
