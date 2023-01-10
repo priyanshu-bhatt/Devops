@@ -25,4 +25,4 @@
 ### Step 8: test by provisioning httpd.
     - ansible all -m package -a "name=httpd state=installed"
     
- 
+ ## Note: EIP can be used or you have to change IP after every instance restart.
